@@ -95,7 +95,7 @@ const emit = defineEmits([
 ]);
 
 // ===== REACTIVE STATE MANAGEMENT =====
-const currentBalance = ref(29759447);
+const currentBalance = ref(150000000);
 const username = ref("@uktamj9nf");
 const accountId = ref("");
 const exchangeRate = ref(100);
@@ -224,7 +224,7 @@ const handlePaymentComplete = (orderData) => {
   // Trừ coins từ balance (đã được xử lý trong PaymentModal)
   // Chỉ cần cập nhật balance từ localStorage
   const newBalance = parseInt(
-    localStorage.getItem("tiktok_balance") || "29759447"
+    localStorage.getItem("tiktok_balance") || "150000000"
   );
   currentBalance.value = newBalance;
 

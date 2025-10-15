@@ -137,7 +137,7 @@ const handlePayment = () => {
 
   // Lấy số dư hiện tại từ localStorage
   const currentBalance = parseInt(
-    localStorage.getItem("tiktok_balance") || "29759447"
+    localStorage.getItem("tiktok_balance") || "150000000"
   );
 
   // Kiểm tra xem có đủ coins để trừ không

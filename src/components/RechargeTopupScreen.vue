@@ -98,7 +98,7 @@ onMounted(() => {
     currentBalance.value = parseInt(savedBalance);
   } else {
     // Nếu chưa có, thiết lập số dư ban đầu
-    currentBalance.value = 29759447;
+    currentBalance.value = 150000000;
     localStorage.setItem("tiktok_balance", currentBalance.value.toString());
   }
 
@@ -219,7 +219,6 @@ const handleSuccessClose = () => {
   transition: all 0.3s ease;
 }
 
-
 .input-group-lg .input-group-text {
   font-size: 18px;
   padding: 15px;
@@ -232,7 +231,8 @@ const handleSuccessClose = () => {
 }
 
 .input-group-lg .input-group-text img {
-  filter: brightness(1.2) saturate(1.4) sepia(1) hue-rotate(-20deg) saturate(5) brightness(0.9);
+  filter: brightness(1.2) saturate(1.4) sepia(1) hue-rotate(-20deg) saturate(5)
+    brightness(0.9);
 }
 
 .input-group-lg .input-group-text:first-child {
