@@ -297,7 +297,6 @@ onUnmounted(() => {
   font-size: 24px;
   font-weight: 600;
   color: #666;
-  font-family: "Courier New", monospace;
 }
 
 /* TikTok Loader - Authentic 2 Circles Animation */

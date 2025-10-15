@@ -48,6 +48,11 @@
               src="../img/bank.png"
               alt="Payment Methods"
               class="img-fluid payment-icon"></img>
+              <img
+              src="../img/pay.png"
+              alt="Payment Methods"
+              class="img-fluid paypal "></img>
+              <i class="bi bi-apple"></i>
         </div>
 
         <!-- Total -->
@@ -121,6 +126,14 @@ const handleRecharge = () => {
 </script>
 
 <style scoped>
+.paypal{
+    font-size: 24px;
+  width: 20px;
+  height: 18px;
+  border-radius: 8px;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+}
 .coin-options-container {
   padding: 0px 15px;
 }
@@ -189,17 +202,14 @@ const handleRecharge = () => {
 
 .payment-icon {
   font-size: 24px;
-  width: 300px;
+  width: 150px;
   height: 20px;
   border-radius: 8px;
   background: #f8f9fa;
   transition: all 0.3s ease;
 }
 
-.payment-icon:hover {
-  background: #e9ecef;
-  transform: scale(1.1);
-}
+
 
 .total-section {
   padding-top: 16px;
