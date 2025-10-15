@@ -16,13 +16,28 @@
       </div>
 
       <!-- Title -->
-      <h3 class="notification-title">Payment Completed</h3>
+      <h3 class="notification-title">
+        {{
+          orderData?.type === "purchase"
+            ? "Purchase Completed"
+            : "Payment Completed"
+        }}
+      </h3>
 
       <!-- Message -->
       <p class="notification-message" v-if="orderData">
-        You recharged
-        <strong>{{ formatNumber(orderData.coins) }} Coins</strong>. You can use
-        Coins to send virtual Gifts.
+        <span v-if="orderData.type === 'purchase'">
+          You purchased
+          <strong>{{ formatNumber(orderData.coins) }} Coins</strong> for
+          <strong>${{ formatPrice(orderData.price) }}</strong
+          >. <br />Your new balance:
+          <strong>{{ formatNumber(orderData.balanceAfter || 0) }} coins</strong>
+        </span>
+        <span v-else>
+          You recharged
+          <strong>{{ formatNumber(orderData.coins) }} Coins</strong>. You can
+          use Coins to send virtual Gifts.
+        </span>
       </p>
 
       <!-- Button -->
@@ -49,6 +64,10 @@ const emit = defineEmits(["close"]);
 
 const formatNumber = (num) => {
   return parseInt(num).toLocaleString();
+};
+
+const formatPrice = (price) => {
+  return parseFloat(price).toFixed(2);
 };
 
 const close = () => {

@@ -101,6 +101,17 @@ const username = ref("@uktamj9nf");
 const accountId = ref("");
 const exchangeRate = ref(100);
 
+// Load balance from localStorage
+const loadBalanceFromStorage = () => {
+  const savedBalance = localStorage.getItem("tiktok_balance");
+  if (savedBalance) {
+    currentBalance.value = parseInt(savedBalance);
+  } else {
+    // Nếu chưa có trong localStorage, lưu số dư ban đầu
+    localStorage.setItem("tiktok_balance", currentBalance.value.toString());
+  }
+};
+
 // Coin packages data với TikTok branding
 const coinPackages = ref([
   { coins: 70, price: 0.74 },
@@ -211,13 +222,21 @@ const handleClosePaymentModal = () => {
 const handlePaymentComplete = (orderData) => {
   console.log("Payment completed:", orderData);
 
-  // Add coins to balance
-  currentBalance.value += orderData.coins;
+  // Trừ coins từ balance (đã được xử lý trong PaymentModal)
+  // Chỉ cần cập nhật balance từ localStorage
+  const newBalance = parseInt(
+    localStorage.getItem("tiktok_balance") || "29759447"
+  );
+  currentBalance.value = newBalance;
 
   // Store completed order data
-  completedOrder.value = orderData;
+  completedOrder.value = {
+    ...orderData,
+    type: "purchase", // Đánh dấu đây là giao dịch mua
+    message: `Đã mua ${orderData.coins.toLocaleString()} coins thành công!`,
+  };
 
-  // Hiển thị SuccessNotification với icon tick xanh đẹp
+  // Hiển thị SuccessNotification
   showSuccessNotification.value = true;
 
   // Emit completion event
@@ -231,10 +250,28 @@ const handlePaymentComplete = (orderData) => {
 const handleCloseSuccessNotification = () => {
   showSuccessNotification.value = false;
   completedOrder.value = null;
+};
+
+// Navigation functions
+const goToTopup = () => {
+  router.push("/topup");
+};
+
+const stayOnCoins = () => {
+  // Already on coins page, maybe scroll to top or refresh
+  window.scrollTo(0, 0);
 }; // ===== LIFECYCLE HOOKS =====
 onMounted(() => {
   console.log("CoinRechargeScreen mounted");
-  // Initialize component
+  // Load balance from localStorage
+  loadBalanceFromStorage();
+
+  // Listen for localStorage changes from other tabs/components
+  window.addEventListener("storage", (e) => {
+    if (e.key === "tiktok_balance" && e.newValue) {
+      currentBalance.value = parseInt(e.newValue);
+    }
+  });
 });
 
 onUnmounted(() => {

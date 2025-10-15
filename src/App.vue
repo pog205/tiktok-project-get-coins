@@ -1,10 +1,10 @@
 <script setup>
-import CoinRechargeScreen from "./components/CoinRechargeScreen.vue";
+// Router sẽ tự động load component dựa trên route
 </script>
 
 <template>
   <div id="app">
-    <CoinRechargeScreen />
+    <router-view />
   </div>
 </template>
 

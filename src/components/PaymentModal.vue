@@ -14,9 +14,11 @@
               <div class="circle circle-cyan"></div>
             </div>
           </div>
-          <h4 class="processing-title">Processing your payment</h4>
-          <p class="processing-subtitle">This could take few seconds</p>
-          <div class="timer">{{ formatTime(timer) }}</div>
+          <h4 class="processing-title">Processing payment</h4>
+          <p class="processing-subtitle">
+            Deducting coins from your balance...
+          </p>
+          <div class="timer">{{ formatTime(timer) }}s</div>
         </div>
 
         <!-- Order Details (hidden when processing or completed) -->
@@ -131,26 +133,51 @@ const close = () => {
 };
 
 const handlePayment = () => {
+  if (!props.orderData) return;
+
+  // Lấy số dư hiện tại từ localStorage
+  const currentBalance = parseInt(
+    localStorage.getItem("tiktok_balance") || "29759447"
+  );
+
+  // Kiểm tra xem có đủ coins để trừ không
+  if (currentBalance < props.orderData.coins) {
+    alert("Không đủ coins để thực hiện giao dịch!");
+    return;
+  }
+
   // Bắt đầu processing
   isProcessing.value = true;
   isCompleted.value = false;
   timer.value = 300; // Bắt đầu từ 5 phút (300 giây)
 
-  // Bắt đầu timer đếm ngược bình thường (mỗi giây trừ 1 giây)
+  // Bắt đầu timer đếm ngược
   timerInterval = setInterval(() => {
-    timer.value -= 1; // Trừ 1 giây mỗi lần
+    timer.value -= 1;
 
     // Khi timer về 0 hoặc âm, hoàn thành thanh toán
     if (timer.value <= 295) {
       // Dừng timer
-
       if (timerInterval) {
         clearInterval(timerInterval);
         timerInterval = null;
       }
 
-      // Emit payment complete và đóng modal ngay
-      emit("payment-complete", props.orderData);
+      // Trừ coins khỏi số dư
+      const newBalance = currentBalance - props.orderData.coins;
+      localStorage.setItem("tiktok_balance", newBalance.toString());
+
+      // Emit payment complete với thông tin đã cập nhật
+      const completedOrder = {
+        ...props.orderData,
+        balanceBefore: currentBalance,
+        balanceAfter: newBalance,
+        coinsSpent: props.orderData.coins,
+        timestamp: new Date().toISOString(),
+        orderId: `TT-PURCHASE-${Date.now()}`,
+      };
+
+      emit("payment-complete", completedOrder);
 
       // Reset states
       isProcessing.value = false;
@@ -300,13 +327,13 @@ onUnmounted(() => {
 }
 
 .circle-red {
-  background-color: #FE2C55; /* TikTok red */
+  background-color: #fe2c55; /* TikTok red */
   animation-delay: -0.6s;
   box-shadow: 0 0 15px rgba(254, 44, 85, 0.4);
 }
 
 .circle-cyan {
-  background-color: #25F4EE; /* TikTok cyan */
+  background-color: #25f4ee; /* TikTok cyan */
   animation-delay: 0s;
   box-shadow: 0 0 15px rgba(37, 244, 238, 0.4);
 }
