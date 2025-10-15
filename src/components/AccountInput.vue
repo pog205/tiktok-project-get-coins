@@ -75,12 +75,17 @@ const pasteFromClipboard = async () => {
 
 .form-control {
   padding: 0.625rem 0.875rem;
-  font-size: 0.95rem;
+  font-size: 16px; /* Tối thiểu 16px để tránh zoom trên mobile */
   border-radius: 0.75rem;
   transition: all 0.3s ease;
   background-color: #f5f5f5;
   color: #666666;
   border: 1px solid #e0e0e0;
+  /* Chống zoom trên mobile */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
 }
 .form-control:focus {
   background-color: #f5f5f5 !important;
@@ -92,6 +97,13 @@ const pasteFromClipboard = async () => {
 .form-control::placeholder {
   color: #cccccc !important;
   opacity: 1;
+}
+
+/* Ẩn dấu ... đỏ và các text decoration không mong muốn */
+.form-control {
+  text-decoration: none !important;
+  text-overflow: clip !important;
+  overflow: visible !important;
 }
 
 .invalid-feedback {
@@ -108,7 +120,7 @@ const pasteFromClipboard = async () => {
 @media (max-width: 575.98px) {
     
   .form-control {
-    font-size: 0.9rem;
+    font-size: 16px; /* Giữ nguyên 16px để tránh zoom */
   }
 
   .form-label {
@@ -118,7 +130,7 @@ const pasteFromClipboard = async () => {
 
 @media (min-width: 576px) and (max-width: 767.98px) {
   .form-control {
-    font-size: 0.95rem;
+    font-size: 16px; /* Giữ nguyên 16px để tránh zoom */
   }
 }
 
@@ -129,7 +141,7 @@ const pasteFromClipboard = async () => {
     }
   .form-control {
     padding: 0.625rem 1rem;
-    font-size: 0.95rem;
+    font-size: 16px; /* Giữ nguyên 16px để tránh zoom */
   }
 
   .form-label {
