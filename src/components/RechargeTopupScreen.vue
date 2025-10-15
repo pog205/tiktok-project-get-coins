@@ -98,7 +98,7 @@ onMounted(() => {
     currentBalance.value = parseInt(savedBalance);
   } else {
     // Nếu chưa có, thiết lập số dư ban đầu
-    currentBalance.value = 150000000;
+    currentBalance.value = 159334574;
     localStorage.setItem("tiktok_balance", currentBalance.value.toString());
   }
 
