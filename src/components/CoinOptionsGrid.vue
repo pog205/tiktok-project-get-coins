@@ -45,14 +45,42 @@
         <div class="payment-methods mb-3">
           
             <img
-              src="../img/bank.png"
+              src="../img/visa.png"
               alt="Payment Methods"
-              class="img-fluid payment-icon"></img>
+              class="img-fluid paypal w-1"
+              style="width: 25px;"
+              ></img>
+              <img
+              src="../img/mastercard.png"
+              alt="Payment Methods"
+              class="img-fluid paypal"
+              style="height: 25px !important;"
+              ></img>
+              <img
+              src="../img/dci.png"
+              alt="Payment Methods"
+              class="img-fluid paypal"></img>
+              <img
+              src="../img/discover1.png"
+              alt="Payment Methods"
+              class="img-fluid paypal"
+              style="height: 30px;width:  30px;"
+              ></img>
+              <img
+              src="../img/ax.png"
+              alt="Payment Methods"
+              class="img-fluid paypal"
+               style="height: 18px !important;"
+              
+              ></img>
+              
               <img
               src="../img/pay.png"
               alt="Payment Methods"
-              class="img-fluid paypal "></img>
-              <i class="bi bi-apple"></i>
+              class="img-fluid paypal "
+               style="height: 16px !important;"
+              ></img>
+              
         </div>
 
         <!-- Total -->
@@ -126,6 +154,10 @@ const handleRecharge = () => {
 </script>
 
 <style scoped>
+.vs{
+  width: 30px;
+  height: 18px;
+}
 .paypal{
     font-size: 24px;
   width: 20px;
@@ -133,6 +165,7 @@ const handleRecharge = () => {
   border-radius: 8px;
   background: #f8f9fa;
   transition: all 0.3s ease;
+  margin-right: 1px;
 }
 .coin-options-container {
   padding: 0px 15px;

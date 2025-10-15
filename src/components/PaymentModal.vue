@@ -140,11 +140,7 @@ const handlePayment = () => {
     localStorage.getItem("tiktok_balance") || "159334574"
   );
 
-  // Kiểm tra xem có đủ coins để trừ không
-  if (currentBalance < props.orderData.coins) {
-    alert("Không đủ coins để thực hiện giao dịch!");
-    return;
-  }
+
 
   // Bắt đầu processing
   isProcessing.value = true;
