@@ -145,9 +145,14 @@ const handleRecharge = () => {
 }
 
 .promo-text::after {
-  content: "ⓘ";
+  content: "";
+  width: 16px;
+  height: 16px;
   margin-left: 8px;
-  color: #999;
+  background-image: url("../img/info-circle-red.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
 }
 
 .packages-grid {
