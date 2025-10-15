@@ -64,7 +64,7 @@
                 </button>
               </div>
               <div class="col-3">
-                <button class="btn w-100 num-btn clear-btn" @click="clearAll">
+                <button class="btn w-100 num-btn" @click="addThreeZeros">
                   000
                 </button>
               </div>
@@ -144,6 +144,14 @@ const addNumber = (num) => {
   calculatePrice();
 };
 
+const addThreeZeros = () => {
+  if (customCoins.value > 0) {
+    // Chỉ thêm 000 nếu đã có số trước đó
+    customCoins.value = customCoins.value * 1000;
+    calculatePrice();
+  }
+};
+
 const clearLast = () => {
   customCoins.value = Math.floor(customCoins.value / 10);
   calculatePrice();
@@ -156,17 +164,21 @@ const clearAll = () => {
 
 const calculatePrice = () => {
   if (customCoins.value > 0) {
-    customPrice.value = (customCoins.value / props.exchangeRate).toFixed(2);
+    // Tỷ lệ cố định: 1 coin = 0.01057 USD
+    const pricePerCoin = 0.74/70;
+    const totalPrice = customCoins.value * pricePerCoin;
+    customPrice.value = totalPrice.toFixed(2);
   } else {
     customPrice.value = "";
   }
 };
 
 const calculateCoins = () => {
-  if (customPrice.value) {
-    customCoins.value = Math.round(
-      parseFloat(customPrice.value) * props.exchangeRate
-    );
+  if (customPrice.value && customPrice.value > 0) {
+    // Công thức ngược: coins = price / 0.01057
+    const pricePerCoin = 0.74/70; // Lấy từ gói nhỏ nhất
+    const coins = Math.round(parseFloat(customPrice.value) / pricePerCoin);
+    customCoins.value = coins;
   }
 };
 
@@ -373,12 +385,6 @@ watch(
 
 .num-btn:active {
   transform: scale(0.95);
-}
-
-.clear-btn:hover {
-  background-color: #f1b0b7 !important;
-  border-color: #f1b0b7 !important;
-  color: #721c24 !important;
 }
 
 .total-summary {

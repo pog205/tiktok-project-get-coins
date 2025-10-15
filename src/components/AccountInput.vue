@@ -72,7 +72,7 @@ const pasteFromClipboard = async () => {
   font-size: 0.95rem;
   border-radius: 0.5rem;
   transition: all 0.3s ease;
-  background-color: rgba(254, 44, 85, 0.07);
+  background-color: rgb(248, 248, 248);
 
   color: #333333;
 }

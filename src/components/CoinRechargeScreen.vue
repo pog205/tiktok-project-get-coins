@@ -108,7 +108,7 @@ const coinPackages = ref([
   { coins: 700, price: 7.4 },
   { coins: 1400, price: 14.8, discount: 10 },
   { coins: 3500, price: 35 },
-  { coins: 7000, price: 70, discount: 15 },
+  { coins: 7000, price: 74, discount: 15 },
   { coins: 17500, price: 185, discount: 20 },
 ]);
 

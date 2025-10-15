@@ -98,8 +98,10 @@ const selectedPackage = ref(null);
 
 // Computed total price
 const selectedTotal = computed(() => {
-  if (!selectedPackage.value) return "0";
-  return selectedPackage.value.price.toFixed(0);
+  if (!selectedPackage.value) return "0.00";
+  // Hiển thị giá chính xác với 2 chữ số thập phân, nhưng loại bỏ .00 nếu là số nguyên
+  const price = selectedPackage.value.price;
+  return price % 1 === 0 ? price.toString() : price;
 });
 
 const handleSelectPackage = (pkg) => {
@@ -158,7 +160,7 @@ const handleRecharge = () => {
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 12px !important;
-  background: rgba(254, 44, 85, 0.07) !important;
+  background: rgb(248, 248, 248) !important;
 }
 
 .custom-card:hover {

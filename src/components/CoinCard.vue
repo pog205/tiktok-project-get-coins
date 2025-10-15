@@ -110,7 +110,7 @@ const handleMouseLeave = () => {
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 8px !important;
-  background: rgba(254, 44, 85, 0.07) !important;
+  background: rgb(248, 248, 248) !important;
   border: 1px solid #e9ecef !important;
 }
 
