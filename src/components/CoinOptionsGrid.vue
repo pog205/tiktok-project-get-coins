@@ -21,7 +21,7 @@
           class="custom-card card border-0 shadow-sm h-100"
           @click="openCustomModal"
         >
-          <div class="card-body p-3 text-center">
+          <div class="card-body p-1 text-center">
             <div
               class="coin-header d-flex align-items-center justify-content-center mb-0"
             >
@@ -32,9 +32,9 @@
                 width="20"
                 height="20"
               />
-              <span class="coin-amount fs-5 text-dark">Custom</span>
+              <span class="coin-amount fs-6 text-dark">Custom</span>
             </div>
-            <div class="price text-muted">Large amount supported</div>
+            <div class="price text-muted small">Large amount</div>
           </div>
         </div>
       </div>
@@ -253,9 +253,6 @@ const handleRecharge = () => {
     gap: 20px;
   }
 
-  .custom-card {
-    padding: 24px 20px;
-  }
 }
 
 @media (min-width: 1440px) {
