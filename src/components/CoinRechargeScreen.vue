@@ -72,11 +72,10 @@ const props = defineProps({
   },
   accountInputLabel: {
     type: String,
-    default: "Account ID",
   },
   accountPlaceholder: {
     type: String,
-    default: "Enter your TikTok ID",
+    default: "@Enter username",
   },
   optionsTitle: {
     type: String,

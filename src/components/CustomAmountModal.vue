@@ -237,6 +237,8 @@ watch(
   z-index: 1000;
   padding: 0;
   border-radius: 8px;
+  /* Chống zoom trên iPhone */
+  touch-action: manipulation;
 }
 
 .modal-content {
@@ -338,6 +340,11 @@ watch(
   min-height: 50px;
   background-color: rgba(22, 24, 35, 0.06) !important;
   color: #000000 !important;
+  /* Chống zoom trên iPhone */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  font-size: 16px !important; /* Tối thiểu 16px để tránh zoom */
 }
 
 /* Responsive for mobile */

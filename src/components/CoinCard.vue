@@ -6,7 +6,7 @@
     @mouseleave="handleMouseLeave"
     :class="cardClasses"
   >
-    <div class="card-body p-3 text-center">
+    <div class="card-body p-1 text-center">
       <div
         class="coin-header d-flex align-items-center justify-content-center mb-0"
       >
@@ -17,9 +17,9 @@
           width="20"
           height="20"
         />
-        <span class="coin-amount fs-5 text-dark">{{ formattedCoins }}</span>
+        <span class="coin-amount fs-6 text-dark">{{ formattedCoins }}</span>
       </div>
-      <div class="price text-muted fs-5">${{ formattedPrice }}</div>
+      <div class="price text-muted small">${{ formattedPrice }}</div>
     </div>
   </div>
 </template>
@@ -146,11 +146,11 @@ const handleMouseLeave = () => {
   }
 
   .coin-amount {
-    font-size: 1.5rem !important;
+    font-size: 1.1rem !important;
   }
 
   .price {
-    font-size: 0.875rem !important;
+    font-size: 0.75rem !important;
   }
 }
 
@@ -160,7 +160,7 @@ const handleMouseLeave = () => {
     height: 20px !important;
   }
   .price {
-    font-size: 1rem !important;
+    font-size: 0.8rem !important;
   }
 }
 

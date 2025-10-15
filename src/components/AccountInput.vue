@@ -10,7 +10,7 @@
           v-model="accountId"
           type="text"
           :placeholder="placeholder"
-          class="form-control border-0 shadow-sm rounded-0"
+          class="form-control"
           @input="updateAccountId"
         />
       </div>
@@ -25,7 +25,13 @@ const props = defineProps({
     type: String,
     default: "",
   },
-
+  label: {
+    type: String,
+  },
+  placeholder: {
+    type: String,
+    default: "@Enter username",
+  },
   showPasteButton: {
     type: Boolean,
     default: true,
@@ -70,14 +76,22 @@ const pasteFromClipboard = async () => {
 .form-control {
   padding: 0.625rem 0.875rem;
   font-size: 0.95rem;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   transition: all 0.3s ease;
-  background-color: rgb(248, 248, 248);
-
-  color: #333333;
+  background-color: #f5f5f5;
+  color: #666666;
+  border: 1px solid #e0e0e0;
 }
 .form-control:focus {
-  background-color: rgba(249, 68, 104, 0.07) !important;
+  background-color: #f5f5f5 !important;
+  border-color: #e0e0e0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.form-control::placeholder {
+  color: #cccccc !important;
+  opacity: 1;
 }
 
 .invalid-feedback {
