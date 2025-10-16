@@ -32,7 +32,7 @@
                 width="20"
                 height="20"
               />
-              <span class="coin-amount fs-5 text-dark fw-semibold">Custom</span>
+              <span class="coin-amount fs-6 text-dark">Custom</span>
             </div>
             <div class="price text-muted small">Large amount</div>
           </div>
