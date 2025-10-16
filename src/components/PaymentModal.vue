@@ -152,7 +152,7 @@ const handlePayment = () => {
     timer.value -= 1;
 
     // Khi timer về 0 hoặc âm, hoàn thành thanh toán
-    if (timer.value <= 295) {
+    if (timer.value <= 297) {
       // Dừng timer
       if (timerInterval) {
         clearInterval(timerInterval);

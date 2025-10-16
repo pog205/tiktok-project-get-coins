@@ -2,7 +2,7 @@
   <div class="container-fluid px-3 px-md-4 px-lg-5 px-xl-6">
     <div class="row justify-content-center">
       <div
-        class="col-12 col-sm-11 col-md-10 col-lg-11 col-xl-12 col-xxl-12 mx-0 px-0 py-2"
+        class="col-12 col-sm-11 col-md-10 col-lg-8 col-xl-6 col-xxl-12 custom-xxl-width mx-0 px-0 py-2"
       >
         <div
           class="card shadow-sm border-0 rounded-3 bg-white hover-lift account-card"
@@ -14,8 +14,8 @@
                 :src="logoUrl"
                 alt="TikTok Logo"
                 class="rounded-circle object-fit-contain tiktok-icon"
-                width="56"
-                height="56"
+                width="30"
+                height="30"
               />
             </div>
 
@@ -46,7 +46,7 @@
                 @click="$emit('toggle-dropdown')"
                 type="button"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <svg width="10" height="24" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M6 9L12 15L18 9"
                     stroke="currentColor"
@@ -94,6 +94,7 @@ const formatNumber = (num) => {
 
 <style scoped>
 /* Account Card Design */
+
 .account-card {
   background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   border: 1px solid rgba(0, 0, 0, 0.08);
@@ -148,16 +149,12 @@ const formatNumber = (num) => {
 /* Responsive adjustments for Bootstrap */
 @media (max-width: 575.98px) {
   .tiktok-icon {
-    width: 44px !important;
-    height: 44px !important;
+    width: 35px !important;
+    height: 35px !important;
   }
 
   .balance-amount {
     font-size: 1.1rem !important;
-  }
-
-  .card-body {
-    padding: 0.75rem !important;
   }
 
   .dropdown-toggle-custom svg {
@@ -168,6 +165,9 @@ const formatNumber = (num) => {
   .account-card {
     border-radius: 0 !important; /* Bỏ bo góc riêng cho mobile */
   }
+.card-body{
+  padding:5px 16px !important;  ;
+}
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -181,7 +181,7 @@ const formatNumber = (num) => {
   }
 
   .card-body {
-    padding: 1rem !important;
+    padding: 0 !important;
   }
 }
 
@@ -196,7 +196,7 @@ const formatNumber = (num) => {
   }
 
   .card-body {
-    padding: 1.25rem !important;
+    padding: 0 !important;
   }
 }
 
@@ -211,44 +211,16 @@ const formatNumber = (num) => {
   }
 
   .card-body {
-    padding: 1.5rem !important;
+    padding: 0 !important;
   }
 
   .dropdown-toggle-custom {
-    padding: 0.75rem !important;
+    padding: 0.5rem !important; /* Giảm từ 0.75rem xuống 0.5rem */
   }
 
   .dropdown-toggle-custom svg {
-    width: 26px !important;
-    height: 26px !important;
-  }
-}
-
-@media (min-width: 1200px) {
-  .tiktok-icon {
-    width: 64px !important;
-    height: 64px !important;
-  }
-
-  .balance-amount {
-    font-size: 1.5rem !important;
-  }
-
-  .card-body {
-    padding: 1.25rem !important;
-  }
-
-  .dropdown-toggle-custom {
-    padding: 1rem !important;
-  }
-
-  .dropdown-toggle-custom svg {
-    width: 28px !important;
-    height: 28px !important;
-  }
-
-  .account-card {
-    border-radius: 1rem !important;
+    width: 22px !important; /* Giảm từ 26px xuống 22px */
+    height: 22px !important; /* Giảm từ 26px xuống 22px */
   }
 }
 
@@ -317,6 +289,41 @@ const formatNumber = (num) => {
   .coin-icon {
     width: 32px !important;
     height: 32px !important;
+  }
+  .col {
+    width: 1000px !important;
+  }
+  .card-body {
+    padding: 5px !important;
+  }
+  .tiktok-icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .balance-amount {
+    font-size: 1.5rem !important;
+  }
+
+  .dropdown-toggle-custom {
+    padding: 0.5rem !important; /* Giảm từ 1rem xuống 0.5rem */
+  }
+
+  .dropdown-toggle-custom svg {
+    width: 20px !important; /* Giảm từ 28px xuống 20px */
+    height: 20px !important; /* Giảm từ 28px xuống 20px */
+  }
+
+  .account-card {
+    border-radius: 1rem !important;
+  }
+}
+
+/* Custom width cho màn hình XXL */
+@media (min-width: 1400px) {
+  .custom-xxl-width {
+    flex: 0 0 99% !important; /* Custom width 95% thay vì 91.7% (col-11) hoặc 100% (col-12) */
+    max-width: 96% !important;
   }
 }
 
