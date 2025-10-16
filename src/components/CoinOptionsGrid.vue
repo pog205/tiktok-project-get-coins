@@ -177,7 +177,7 @@ const handleRecharge = () => {
 
 .section-title {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   color: #333;
   margin: 10px 0 8px 0;
 }
