@@ -48,13 +48,15 @@
               src="../img/visa.png"
               alt="Payment Methods"
               class="img-fluid paypal w-1"
-              style="width: 25px;"
+              style="width: 30px;"
               ></img>
               <img
               src="../img/mastercard.png"
               alt="Payment Methods"
               class="img-fluid paypal"
-              style="height: 25px !important;"
+              style="height: 40px !important;
+              width: 40px !important;
+              "
               ></img>
               <img
               src="../img/dci.png"
@@ -64,13 +66,13 @@
               src="../img/discover1.png"
               alt="Payment Methods"
               class="img-fluid paypal"
-              style="height: 30px;width:  30px;"
+              style="height: 35px !important;width:  30px !important;"
               ></img>
               <img
               src="../img/ax.png"
               alt="Payment Methods"
               class="img-fluid paypal"
-               style="height: 18px !important;"
+               style="height: 25px !important;"
               
               ></img>
               
@@ -78,7 +80,7 @@
               src="../img/pay.png"
               alt="Payment Methods"
               class="img-fluid paypal "
-               style="height: 16px !important;"
+               style="height: 24px !important;"
               ></img>
               
         </div>
@@ -155,13 +157,13 @@ const handleRecharge = () => {
 
 <style scoped>
 .vs{
-  width: 30px;
-  height: 18px;
+  width: 35px;
+  height: 20px;
 }
 .paypal{
     font-size: 24px;
-  width: 20px;
-  height: 18px;
+  width: 30px;
+  height: 25px;
   border-radius: 8px;
   background: #f8f9fa;
   transition: all 0.3s ease;
