@@ -7,7 +7,7 @@
         <div
           class="card shadow-sm border-0 rounded-3 bg-white hover-lift account-card"
         >
-          <div class="card-body d-flex align-items-center p-4 p-lg-5">
+          <div class="card-body d-flex align-items-center">
             <!-- TikTok Icon -->
             <div class="flex-shrink-0 me-3 me-lg-4">
               <img
@@ -124,7 +124,7 @@ const formatNumber = (num) => {
 
 .balance-text {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: -0.02em;
 }
 
@@ -157,12 +157,16 @@ const formatNumber = (num) => {
   }
 
   .card-body {
-    padding: 1rem !important;
+    padding: 0.75rem !important;
   }
 
   .dropdown-toggle-custom svg {
     width: 18px !important;
     height: 18px !important;
+  }
+
+  .account-card {
+    border-radius: 0 !important; /* Bỏ bo góc riêng cho mobile */
   }
 }
 
@@ -177,7 +181,7 @@ const formatNumber = (num) => {
   }
 
   .card-body {
-    padding: 1.25rem !important;
+    padding: 1rem !important;
   }
 }
 
@@ -192,7 +196,7 @@ const formatNumber = (num) => {
   }
 
   .card-body {
-    padding: 1.5rem !important;
+    padding: 1.25rem !important;
   }
 }
 
@@ -203,11 +207,11 @@ const formatNumber = (num) => {
   }
 
   .balance-amount {
-    font-size: 1.5rem !important;
+    font-size: 1.4rem !important;
   }
 
   .card-body {
-    padding: 2rem !important;
+    padding: 1.5rem !important;
   }
 
   .dropdown-toggle-custom {
@@ -227,11 +231,11 @@ const formatNumber = (num) => {
   }
 
   .balance-amount {
-    font-size: 1.75rem !important;
+    font-size: 1.5rem !important;
   }
 
   .card-body {
-    padding: 2.5rem !important;
+    padding: 1.25rem !important;
   }
 
   .dropdown-toggle-custom {

@@ -165,7 +165,7 @@ const clearAll = () => {
 const calculatePrice = () => {
   if (customCoins.value > 0) {
     // Tỷ lệ cố định: 1 coin = 0.01057 USD
-    const pricePerCoin = 0.74/70;
+    const pricePerCoin = 0.74 / 70;
     const totalPrice = customCoins.value * pricePerCoin;
     customPrice.value = totalPrice.toFixed(2);
   } else {
@@ -176,7 +176,7 @@ const calculatePrice = () => {
 const calculateCoins = () => {
   if (customPrice.value && customPrice.value > 0) {
     // Công thức ngược: coins = price / 0.01057
-    const pricePerCoin = 0.74/70; // Lấy từ gói nhỏ nhất
+    const pricePerCoin = 0.74 / 70; // Lấy từ gói nhỏ nhất
     const coins = Math.round(parseFloat(customPrice.value) / pricePerCoin);
     customCoins.value = coins;
   }
@@ -243,13 +243,40 @@ watch(
 
 .modal-content {
   background: white;
-  border-radius: 20px 20px 0 0; /* Bo 2 góc trên, 2 góc dưới vuông */
-
+  border-radius: 10px; /* Bo 2 góc trên, 2 góc dưới vuông */
   box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
   width: 100%;
   max-width: 500px;
   max-height: 90vh;
   overflow-y: auto;
+}
+
+/* Desktop styles - Modal ở giữa màn hình */
+@media (min-width: 768px) {
+  .modal-overlay {
+    align-items: center; /* Center vertically */
+    padding: 20px;
+  }
+
+  .modal-content {
+    border-radius: 8px; /* Bo tròn tất cả 4 góc trên desktop */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    max-width: 450px;
+    width: 100%;
+    padding: 20px; /* Thêm padding bên trong modal */
+  }
+
+  .modal-header {
+    padding: 0 0 15px 0; /* Padding cho header */
+  }
+
+  .modal-body {
+    padding: 0 0 15px 0 !important; /* Padding cho body */
+  }
+
+  .modal-footer {
+    padding: 0 !important; /* Reset padding footer */
+  }
 }
 
 /* Modal slide up animation */
@@ -275,6 +302,17 @@ watch(
 
 .modal-leave-to .modal-content {
   transform: translateY(100%);
+}
+
+/* Desktop animation - fade and scale */
+@media (min-width: 768px) {
+  .modal-enter-from .modal-content {
+    transform: scale(0.7) translateY(0);
+  }
+
+  .modal-leave-to .modal-content {
+    transform: scale(0.7) translateY(0);
+  }
 }
 
 .modal-header {
